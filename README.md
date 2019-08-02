@@ -20,16 +20,6 @@ of Multiplayer games to alert players when they are due to take their turn.
 - [ ] Test Register Game Command
 - [ ] Test Player Alert Command
 - [ ] Transfer Bot to CivAlerts Server
-- [ ]
 
 ### Bug List
 - [ ] No Known Bugs
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
