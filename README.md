@@ -8,18 +8,20 @@ Civ Alerts is in early development and planned as a bot for discord that will ke
 of Multiplayer games to alert players when they are due to take their turn.
 
 ## Progress
-### Currently Being Worked On for Alpha Release
+### Currently Being Worked On
 - [x] Create Database Wireframe
-- [ ] Creating Database Tables ( 0 / 6 Tables)
+- [ ] Creating Database Tables ( 0 / 7 Tables)
 - [ ] Create Command Wireframe 
-- [ ] Setup Github Webhook (For Tracking Github Changes)
+- [x] Setup Github Webhook (For Tracking Github Changes)
 - [ ] Setup Bot on Discord Test Server
 - [ ] Setup Basic Bot Commands
 - [ ] Connect Bot to Server
-- [ ] Test Register User Command
-- [ ] Test Register Game Command
-- [ ] Test Player Alert Command
+- [ ] Test Register User Commands
+- [ ] Test Register Game Commands
+- [ ] Test Player Alert Commands
 - [ ] Transfer Bot to CivAlerts Server
+- [ ] Finish Alert Logic
+- [ ] Finish Game Update Logic
 
 ### Bug List
-- [ ] No Known Bugs
+- [x] No Known Bugs
