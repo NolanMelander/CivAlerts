@@ -11,7 +11,7 @@ of Multiplayer games to alert players when they are due to take their turn.
 ### Currently Being Worked On
 - [x] Create Database Wireframe
 - [ ] Creating Database Tables ( 0 / 7 Tables)
-- [ ] Create Command Wireframe 
+- [x] Create Command Wireframe 
 - [x] Setup Github Webhook (For Tracking Github Changes)
 - [ ] Setup Bot on Discord Test Server
 - [ ] Setup Basic Bot Commands
@@ -23,5 +23,6 @@ of Multiplayer games to alert players when they are due to take their turn.
 - [ ] Finish Alert Logic
 - [ ] Finish Game Update Logic
 
-### Bug List
-- [x] No Known Bugs
+## Public Wireframes
+### Bot Command Wireframe
+![alt text](Images/CivAlert%20Commands.png "Bot Command Wireframe")
