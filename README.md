@@ -25,7 +25,7 @@ directly with Civilization multiplayer games to automatically update without any
 - [ ] Transfer Bot to CivAlerts Server
 - [ ] Finish Alert Logic
 - [ ] Finish Game Update Logic
-- [ ] Create Bot Interaction Wireframe
+- [x] Create Bot Interaction Wireframe
 
 ## Future Planned Tasks
 - [ ] Add support for more than 8 players
