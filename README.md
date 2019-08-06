@@ -35,3 +35,7 @@ directly with Civilization multiplayer games to automatically update without any
 ## Public Wireframes
 ### Bot Command Wireframe
 ![alt text](Images/CivAlert%20Commands.png "Bot Command Wireframe")
+
+### Command Interaction Wireframe (In progress)
+
+![alt_text](Images/Flow%20Wireframe.png "Bot Command Interaction Wireframe")
