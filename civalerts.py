@@ -1,19 +1,17 @@
 import discord
 from discord.ext import commands
 import asyncio
+import os
 
 # Tokens & IDS
-# TODO Replace with bot token
-botToken = " "
-# TODO Replace with server id
-serverID = " "
-# TODO Replace with chanID
-chanID = " "
+botToken = os.environ['BOT_TOKEN']
+serverID = os.environ['SERVER_ID']
+chanID = os.environ['CHANNEL_ID']
 
 # Variable
 version = "v0.0.1 - Alpha"
-# TODO Replace with channel name
-tChannel = " "
+
+tChannel = os.environ['CHAN']
 
 # Bot Startup
 bot = commands.Bot(command_prefix='!', description="A bot that sends reminders for players to take their turns")
