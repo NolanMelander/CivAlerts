@@ -22,6 +22,8 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
+
+@bot.command()
 async def info(ctx):
     channel = str(ctx.message.channel.name)
     if channel == tChannel:
@@ -40,3 +42,5 @@ async def info(ctx):
         embed.set_footer(text="Version" + version)
 
         await ctx.send(embed=embed)
+
+bot.run(botToken)
