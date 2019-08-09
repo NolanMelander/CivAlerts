@@ -15,7 +15,7 @@ directly with Civilization multiplayer games to automatically update without any
 - [x] Creating Database Tables
 - [x] Create Command Wireframe 
 - [x] Setup Github Webhook (For Tracking Github Changes)
-- [ ] Setup Bot on Discord Test Server
+- [x] Setup Bot on Discord Test Server
 - [ ] Setup Basic Bot Commands
 - [ ] Connect Bot to Server
 - [ ] Test Register User Commands
@@ -31,6 +31,7 @@ directly with Civilization multiplayer games to automatically update without any
 - [ ] Add support for more than 8 players
 - [ ] Add support for custom civilizations
 - [ ] Direct integration with civilization games
+- [ ] Score leader board
 
 ## Public Wireframes
 ### Bot Command Wireframe
