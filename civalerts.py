@@ -36,11 +36,24 @@ async def info(ctx):
         embed.add_field(name="Version", value=version)
 
         # Version Changes
-        embed.add_field(name=version + " changes", value="Pre Alpha Release")
+        embed.add_field(name=version + " changes", value="Pre Alpha Release", inline=False)
 
         # Footer
         embed.set_footer(text="Version" + version)
 
         await ctx.send(embed=embed)
+
+
+@bot.command()
+async def commands(ctx):
+    channel = str(ctx.message.channel.name)
+    if channel == tChannel:
+        embed = discord.Embed(title="Command List", description="List of bot commands", color=0xeee657)
+
+        # Footer
+        embed.set_footer(text="Version" + version)
+
+        await ctx.send(embed=embed)
+
 
 bot.run(botToken)
