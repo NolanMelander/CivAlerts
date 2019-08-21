@@ -26,6 +26,7 @@ directly with Civilization multiplayer games to automatically update without any
 - [ ] Finish Alert Logic
 - [ ] Finish Game Update Logic
 - [x] Create Bot Interaction Wireframe
+- [ ] Optimize Database Tables
 
 ## Future Planned Tasks
 - [ ] Add support for more than 8 players
