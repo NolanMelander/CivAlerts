@@ -45,6 +45,34 @@ async def info(ctx):
 
 
 @bot.command()
+async def linfo(ctx):
+    channel = str(ctx.message.channel.name)
+    if channel == tChannel:
+        embed = discord.Embed(title="Leader List", description="List of Leaders", color=0xeee657)
+
+        # Civ Info
+        embed.add_field(name="Leader", value="# | Leader | Civilization")
+        # Footer
+        embed.set_footer(text="Version" + version)
+
+        await ctx.send(embed=embed)
+
+
+@bot.command()
+async def cinfo(ctx):
+    channel = str(ctx.message.channel.name)
+    if channel == tChannel:
+        embed = discord.Embed(title="Civilization List", description="List of Civilizations", color=0xeee657)
+
+        # Civ Info
+        embed.add_field(name="Civilization", value="# | Civilization")
+        # Footer
+        embed.set_footer(text="Version" + version)
+
+        await ctx.send(embed=embed)
+
+
+@bot.command()
 async def commands(ctx):
     channel = str(ctx.message.channel.name)
     if channel == tChannel:
