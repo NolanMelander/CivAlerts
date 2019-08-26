@@ -36,6 +36,7 @@ def db_test():
         cursor = connection.cursor()
         cursor.execute(Query)
         records = cursor.fetchall()
+        civ = records
         print("Total number of rows in Civilization: ", cursor.rowcount)
 
         print("\nPrinting each Civilization")
@@ -53,3 +54,6 @@ def db_test():
             connection.close()
             cursor.close()
             print("MySQL connection is closed")
+
+        return civ
+

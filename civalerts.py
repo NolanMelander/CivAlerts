@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import asyncio
 import os
 import db
 
@@ -48,7 +47,6 @@ async def info(ctx):
 @bot.command()
 async def linfo(ctx):
     channel = str(ctx.message.channel.name)
-    db.db_test()
     if channel == tChannel:
         embed = discord.Embed(title="Leader List", description="List of Leaders", color=0xeee657)
 
@@ -64,10 +62,12 @@ async def linfo(ctx):
 async def cinfo(ctx):
     channel = str(ctx.message.channel.name)
     if channel == tChannel:
+        civ = db.db_test()
         embed = discord.Embed(title="Civilization List", description="List of Civilizations", color=0xeee657)
 
         # Civ Info
-        embed.add_field(name="Civilization", value="# | Civilization")
+        for row in civ:
+            embed.add_field(name="# | Civilization", value=str(row[0]) + " | " + str(row[1] + "\n"), inline=True)
         # Footer
         embed.set_footer(text="Version" + version)
 
