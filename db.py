@@ -26,5 +26,30 @@ def db_connect():
             print("MySQL connection is closed")
     pass
 
+def db_test():
+    try:
+        connection = mysql.connector.connect(host=os.environ['DB_HOST'],
+                                             database=os.environ['DB_NAME'],
+                                             user=os.environ['DB_USER'],
+                                             password=os.environ['DB_PASS'])
+        Query = "select * from civilization"
+        cursor = connection.cursor()
+        cursor.execute(Query)
+        records = cursor.fetchall()
+        print("Total number of rows in Civilization: ", cursor.rowcount)
 
-db_connect()
+        print("\nPrinting each Civilization")
+        for row in records:
+            print("ID = ", row[0])
+            print("Civilization = ", row[1])
+            print("Times Played = ", row[2])
+            print("Times Won = ", row[3], "\n")
+
+    except Error as e:
+        print("Error reading data from MySQL table", e)
+
+    finally:
+        if (connection.is_connected()):
+            connection.close()
+            cursor.close()
+            print("MySQL connection is closed")

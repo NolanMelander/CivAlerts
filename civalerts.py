@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import asyncio
 import os
+import db
 
 # Tokens & IDS
 botToken = os.environ['BOT_TOKEN']
@@ -47,6 +48,7 @@ async def info(ctx):
 @bot.command()
 async def linfo(ctx):
     channel = str(ctx.message.channel.name)
+    db.db_test()
     if channel == tChannel:
         embed = discord.Embed(title="Leader List", description="List of Leaders", color=0xeee657)
 
