@@ -48,10 +48,13 @@ async def info(ctx):
 async def linfo(ctx):
     channel = str(ctx.message.channel.name)
     if channel == tChannel:
+        leader = db.linfo()
         embed = discord.Embed(title="Leader List", description="List of Leaders", color=0xeee657)
 
         # Civ Info
-        embed.add_field(name="Leader", value="# | Leader | Civilization")
+        for row in leader:
+            embed.add_field(name="# | Leader | Civilization", value="{0} | {1} | {2}\n".format(str(row[0]), str(row[1]),
+                                                                                               str(row[2])), inline=True)
         # Footer
         embed.set_footer(text="Version" + version)
 
@@ -62,12 +65,14 @@ async def linfo(ctx):
 async def cinfo(ctx):
     channel = str(ctx.message.channel.name)
     if channel == tChannel:
-        civ = db.db_test()
+        await ctx.message.delete()
+        civ = db.cinfo()
         embed = discord.Embed(title="Civilization List", description="List of Civilizations", color=0xeee657)
 
         # Civ Info
         for row in civ:
-            embed.add_field(name="# | Civilization", value=str(row[0]) + " | " + str(row[1] + "\n"), inline=True)
+            embed.add_field(name="# | Civilization", value="{0} | {1}\n".format(str(row[0]), str(row[1])), inline=True)
+
         # Footer
         embed.set_footer(text="Version" + version)
 
@@ -78,6 +83,7 @@ async def cinfo(ctx):
 async def commands(ctx):
     channel = str(ctx.message.channel.name)
     if channel == tChannel:
+        await ctx.message.delete()
         embed = discord.Embed(title="Command List", description="List of bot commands", color=0xeee657)
 
         # Footer

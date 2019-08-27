@@ -2,6 +2,7 @@ import os
 import mysql.connector
 from mysql.connector import Error
 
+
 def db_connect():
 
     try:
@@ -26,7 +27,8 @@ def db_connect():
             print("MySQL connection is closed")
     pass
 
-def db_test():
+
+def cinfo():
     try:
         connection = mysql.connector.connect(host=os.environ['DB_HOST'],
                                              database=os.environ['DB_NAME'],
@@ -57,3 +59,35 @@ def db_test():
 
         return civ
 
+
+def linfo():
+    try:
+        connection = mysql.connector.connect(host=os.environ['DB_HOST'],
+                                             database=os.environ['DB_NAME'],
+                                             user=os.environ['DB_USER'],
+                                             password=os.environ['DB_PASS'])
+        Query = "select l.id, l.leader_name, c.civ_name, l.times_played, l.times_won " \
+                "from leader l left join civilization c on l.civ_id = c.id"
+        cursor = connection.cursor()
+        cursor.execute(Query)
+        records = cursor.fetchall()
+        leader = records
+        print("Total number of rows in leaders: ", cursor.rowcount)
+
+        print("\nPrinting each Civilization")
+        for row in records:
+            print("ID = ", row[0])
+            print("Leader = ", row[2])
+            print("Times Played = ", row[3])
+            print("Times Won = ", row[4], "\n")
+
+    except Error as e:
+        print("Error reading data from MySQL table", e)
+
+    finally:
+        if (connection.is_connected()):
+            connection.close()
+            cursor.close()
+            print("MySQL connection is closed")
+
+        return leader
