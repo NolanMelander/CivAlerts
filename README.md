@@ -26,6 +26,10 @@ directly with Civilization multiplayer games to automatically update without any
 - [ ] Optimize Database Tables
 - [ ] Rework linfo and cinfo commands
 - [ ] Redesign leader table in database
+- [ ] Redesign civilization table in database
+- [ ] Create three new tables for unique abilities, units, and infrastructure
+- [ ] Add Leader Icons to Images/Leader
+- [ ] Add Civilization Icons to Images/Civilization
 
 
 ## Finished Tasks - Version 0.0.1 - Alpha
