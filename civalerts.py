@@ -9,7 +9,7 @@ serverID = os.environ['SERVER_ID']
 chanID = os.environ['CHANNEL_ID']
 
 # Variable
-version = "v0.0.1 - Alpha"
+version = "v0.0.2 - Alpha"
 
 tChannel = os.environ['CHAN']
 
