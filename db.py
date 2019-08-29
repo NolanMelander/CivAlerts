@@ -66,8 +66,9 @@ def linfo():
                                              database=os.environ['DB_NAME'],
                                              user=os.environ['DB_USER'],
                                              password=os.environ['DB_PASS'])
-        Query = "select l.id, l.leader_name, c.civ_name, l.times_played, l.times_won " \
-                "from leader l left join civilization c on l.civ_id = c.id"
+        Query = "select l.id, l.leader_name, c.civ_name, civ.civ_name, l.times_played, l.times_won " \
+                "from leader l left join civilization c on l.civ_id = c.id " \
+                "left join civilization civ on l.alternate_civ_id = civ.id"
         cursor = connection.cursor()
         cursor.execute(Query)
         records = cursor.fetchall()
