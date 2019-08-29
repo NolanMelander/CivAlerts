@@ -48,17 +48,16 @@ async def info(ctx):
 async def linfo(ctx):
     channel = str(ctx.message.channel.name)
     if channel == tChannel:
+        await ctx.message.delete()
+        await ctx.channel.send("... Generating List Please Wait")
         leader = db.linfo()
-        embed = discord.Embed(title="Leader List", description="List of Leaders", color=0xeee657)
-
-        # Civ Info
+        await ctx.channel.send("```ID | Leader | Civilization | Alt Civilization```")
         for row in leader:
-            embed.add_field(name="# | Leader | Civilization", value="{0} | {1} | {2}\n".format(str(row[0]), str(row[1]),
-                                                                                               str(row[2])), inline=True)
-        # Footer
-        embed.set_footer(text="Version" + version)
-
-        await ctx.send(embed=embed)
+            if row[3]:
+                await ctx.channel.send("```{0} | {1} | {2} | {3}```".format(str(row[0]), str(row[1]), str(row[2])
+                                                                             , str(row[3])))
+            else:
+                await ctx.channel.send("```{0} | {1} | {2} ```".format(str(row[0]), str(row[1]), str(row[2])))
 
 
 @bot.command()
@@ -66,18 +65,17 @@ async def cinfo(ctx):
     channel = str(ctx.message.channel.name)
     if channel == tChannel:
         await ctx.message.delete()
+        await ctx.channel.send("...Generating List Please Wait")
         civ = db.cinfo()
-        embed = discord.Embed(title="Civilization List", description="List of Civilizations", color=0xeee657)
-
-        # Civ Info
+        await ctx.channel.send("```ID | Civilization```")
         for row in civ:
-            embed.add_field(name="# | Civilization", value="{0} | {1}\n".format(str(row[0]), str(row[1])), inline=True)
+            await ctx.channel.send("```{0} | {1}```".format(str(row[0]), str(row[1])))
 
-        # Footer
-        embed.set_footer(text="Version" + version)
-
-        await ctx.send(embed=embed)
-
+@bot.command()
+async def uregister(ctx):
+    channel = str(ctx.message.channel.name)
+    if channel == tChannel:
+        await ctx.message.delete()
 
 @bot.command()
 async def commands(ctx):
