@@ -16,7 +16,7 @@ directly with Civilization multiplayer games to automatically update without any
 ## Progress
 ### Tasks Currently In Progress
 - [ ] Setup Basic Bot Commands
-- [ ] Test Register User Commands
+- [X] Test Register User Commands
 - [ ] Test Register Game Commands
 - [ ] Test Player Alert Commands
 - [ ] Test Update Commands
