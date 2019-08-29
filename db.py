@@ -2,32 +2,6 @@ import os
 import mysql.connector
 from mysql.connector import Error
 
-
-def db_connect():
-
-    try:
-        connection = mysql.connector.connect(host=os.environ['DB_HOST'],
-                                             database=os.environ['DB_NAME'],
-                                             user=os.environ['DB_USER'],
-                                             password=os.environ['DB_PASS'])
-        if connection.is_connected():
-            info = connection.get_server_info()
-            print("Connected to MySQL Server version ", info)
-            cursor = connection.cursor()
-            cursor.execute("select database();")
-            record = cursor.fetchone()
-            print("Your connected to database: ", record)
-
-    except Error as e:
-        print("Error while connecting to MySQL", e)
-    finally:
-        if connection.is_connected():
-            cursor.close()
-            connection.close()
-            print("MySQL connection is closed")
-    pass
-
-
 def cinfo():
     try:
         connection = mysql.connector.connect(host=os.environ['DB_HOST'],
@@ -92,3 +66,61 @@ def linfo():
             print("MySQL connection is closed")
 
         return leader
+
+
+def uregsiter(userId):
+    try:
+
+        print("\nChecking for user with id " + str(userId))
+        connection = mysql.connector.connect(host=os.environ['DB_HOST'],
+                                             database=os.environ['DB_NAME'],
+                                             user=os.environ['DB_USER'],
+                                             password=os.environ['DB_PASS'])
+
+        Query = "Select * from player where id = %s"
+        cursor = connection.cursor()
+        cursor.execute(Query, (userId,))
+        records = cursor.fetchall()
+        users = records
+        print("Total number of rows in player: ", cursor.rowcount)
+
+        for row in records:
+            print("ID = ", row[0])
+            print("User Name = ", row[1])
+            print("Score = ", row[2])
+            print("Active Games = ", row[3], "\n")
+
+    except Error as e:
+        print("Error reading data from MySQL table", e)
+
+    finally:
+        if (connection.is_connected()):
+            connection.close()
+            cursor.close()
+            print("MySQL connection is closed")
+
+        return users
+
+
+def iuser(userId, userName):
+    try:
+
+        print("\nInserting new user with id " + str(userId) + " and User Name " + userName)
+        connection = mysql.connector.connect(host=os.environ['DB_HOST'],
+                                             database=os.environ['DB_NAME'],
+                                             user=os.environ['DB_USER'],
+                                             password=os.environ['DB_PASS'])
+
+        Query = "INSERT INTO player (id, user_name) VALUES (%s, %s)"
+        cursor = connection.cursor()
+        cursor.execute(Query, (userId, userName,))
+
+
+    except Error as e:
+        print("Error inserting data to MySQL table", e)
+
+    finally:
+        if (connection.is_connected()):
+            connection.close()
+            cursor.close()
+            print("MySQL connection is closed")
