@@ -10,8 +10,8 @@ release of Civ Alerts will require manual updates by the players, but the future
 directly with Civilization multiplayer games to automatically update without any need for user interaction.
 
 ##Known Bugs
--[ ] cInfo does not display full list of civilizations
--[ ] lInfo does not display full list of leaders
+-[x] cInfo does not display full list of civilizations
+-[x] lInfo does not display full list of leaders
 
 ## Progress
 ### Tasks Currently In Progress
@@ -24,7 +24,7 @@ directly with Civilization multiplayer games to automatically update without any
 - [ ] Finish Alert Logic
 - [ ] Finish Game Update Logic
 - [ ] Optimize Database Tables
-- [ ] Rework linfo and cinfo commands
+- [x] Rework linfo and cinfo commands
 - [ ] Redesign leader table in database
 - [ ] Redesign civilization table in database
 - [ ] Create three new tables for unique abilities, units, and infrastructure
