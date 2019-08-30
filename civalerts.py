@@ -27,22 +27,17 @@ async def on_ready():
 async def info(ctx):
     channel = str(ctx.message.channel.name)
     if channel == tChannel:
-        embed = discord.Embed(title="Civ Alerts", description="Reminds players to take their turns", color=0xeee657)
-
-        # Personal Info
-        embed.add_field(name="Author", value="Nolan Melander")
-
-        # Version Info
-        embed.add_field(name="Version", value=version)
-
-        # Version Changes
-        embed.add_field(name=version + " changes", value="Pre Alpha Release", inline=False)
-
-        # Footer
-        embed.set_footer(text="Version" + version)
-
-        await ctx.send(embed=embed)
-
+        await ctx.message.delete()
+        await ctx.channel.send("```"
+                               "CIV ALERTS BOT - CREATED BY NOLAN MELANDER\n"
+                               "VERSION 0.0.2 - ALPHA CHANGES\n"
+                               "- Fixed display issues for cinfo and linfo commands\n"
+                               "- User Registration has been completed - User command uregister [username]\n"
+                               "- Restructered Image folder - Images now sorted into appropriate folders\n"
+                               "- Added images for civilizations and leaders in prep for V 0.0.3 - Alpha\n"
+                               "- Redesigned linfo command to display for leaders with alternate civilizations "
+                               "(Looking at you Eleanor)\n"
+                               "```")
 
 @bot.command()
 async def linfo(ctx):
