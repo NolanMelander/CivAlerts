@@ -68,18 +68,17 @@ def linfo():
         return leader
 
 
-def uregsiter(userId):
+def uregsiter(userId, userName):
     try:
-
         print("\nChecking for user with id " + str(userId))
         connection = mysql.connector.connect(host=os.environ['DB_HOST'],
                                              database=os.environ['DB_NAME'],
                                              user=os.environ['DB_USER'],
                                              password=os.environ['DB_PASS'])
 
-        Query = "Select * from player where id = %s"
+        Query = "Select * from player p where p.id = %s or p.user_name = %s"
         cursor = connection.cursor()
-        cursor.execute(Query, (userId,))
+        cursor.execute(Query, (userId, userName,))
         records = cursor.fetchall()
         users = records
         print("Total number of rows in player: ", cursor.rowcount)

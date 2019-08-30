@@ -71,23 +71,30 @@ async def cinfo(ctx):
         for row in civ:
             await ctx.channel.send("```{0} | {1}```".format(str(row[0]), str(row[1])))
 
+
 @bot.command()
 async def uregister(ctx, userName: str = None):
     channel = str(ctx.message.channel.name)
     if channel == tChannel:
+        register = True
         await ctx.message.delete()
         if userName:
             await ctx.channel.send("...Registering user " + userName)
             userid = ctx.message.author.id
-            user = db.uregsiter(userid)
-            if user:
-                await ctx.channel.send("...You have already registered with CivAlerts")
-            else:
+            user = db.uregsiter(userid, userName)
+            for row in user:
+                register = False
+                if row[0] == ctx.message.author.id:
+                    await ctx.channel.send("You have already registered with CivAlerts")
+                elif row[1] == userName:
+                    await ctx.channel.send("The user name " + userName + " already exists")
+            if register:
                 await ctx.channel.send("...Creating new user")
                 db.iuser(userid, userName)
                 await ctx.channel.send("...User created with user name " + userName)
         else:
             await ctx.channel.send("Please include username with command ```!uregister userName```")
+
 
 @bot.command()
 async def commands(ctx):
