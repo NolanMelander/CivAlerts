@@ -20,7 +20,8 @@ def cinfo():
             print("ID = ", row[0])
             print("Civilization = ", row[1])
             print("Times Played = ", row[2])
-            print("Times Won = ", row[3], "\n")
+            print("Times Won = ", row[3])
+            print("Image Location =", row[4])
 
     except Error as e:
         print("Error reading data from MySQL table", e)

@@ -9,7 +9,7 @@ serverID = os.environ['SERVER_ID']
 chanID = os.environ['CHANNEL_ID']
 
 # Variable
-version = "v0.0.2 - Alpha"
+version = "v0.0.3 - Alpha"
 
 tChannel = os.environ['CHAN']
 
@@ -39,6 +39,7 @@ async def info(ctx):
                                "(Looking at you Eleanor)\n"
                                "```")
 
+
 @bot.command()
 async def linfo(ctx):
     channel = str(ctx.message.channel.name)
@@ -46,11 +47,11 @@ async def linfo(ctx):
         await ctx.message.delete()
         await ctx.channel.send("... Generating List Please Wait")
         leader = db.linfo()
-        await ctx.channel.send("```ID | Leader | Civilization | Alt Civilization```")
+        await ctx.channel.send("```ID | Leader | Civilization | Icon | Alt Civilization | Alt Icon```")
         for row in leader:
             if row[3]:
                 await ctx.channel.send("```{0} | {1} | {2} | {3}```".format(str(row[0]), str(row[1]), str(row[2])
-                                                                             , str(row[3])))
+                                                                            , str(row[3])))
             else:
                 await ctx.channel.send("```{0} | {1} | {2} ```".format(str(row[0]), str(row[1]), str(row[2])))
 
@@ -62,8 +63,9 @@ async def cinfo(ctx):
         await ctx.message.delete()
         await ctx.channel.send("...Generating List Please Wait")
         civ = db.cinfo()
-        await ctx.channel.send("```ID | Civilization```")
+        await ctx.channel.send("```ID | Civilization | Icon```")
         for row in civ:
+            await ctx.channel.send(file=discord.File(str(row[4])))
             await ctx.channel.send("```{0} | {1}```".format(str(row[0]), str(row[1])))
 
 
